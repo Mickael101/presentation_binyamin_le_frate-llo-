@@ -1535,7 +1535,39 @@
             <h2>30% זמן אבוד =<br>30% רווח בלתי נראה</h2>
             <p class="section-subtitle">הלוגיסטיקה המסורתית היא הפסד פרודוקטיביות ישיר שמשפיע ישירות על הרווחיות שלך.</p>
 
-            <div class="cards-grid">
+            <!-- פירוט מפורט של זמן אבוד -->
+            <div class="cards-grid fade-in" style="grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 40px;">
+                <div class="card problem-card" style="text-align: center;">
+                    <div class="card-icon">&#128222;</div>
+                    <h3>סורסינג</h3>
+                    <p style="font-size: 2rem; font-weight: 800; color: #DC2626; margin: 15px 0;">45-60 דק'/יום</p>
+                    <p style="font-size: 0.9rem; color: #6B7280; line-height: 1.6;">10 שיחות של 5 דקות, 20 הודעות וואטסאפ, המתנה שהספק יתקשר חזרה...</p>
+                    <div style="margin-top: 15px; padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: 8px; border: 1px solid var(--green-construction);">
+                        <p style="color: var(--green-construction); font-weight: 600; font-size: 0.85rem;">MASA: 5-10 דקות מקסימום</p>
+                    </div>
+                </div>
+                <div class="card problem-card" style="text-align: center;">
+                    <div class="card-icon">&#128666;</div>
+                    <h3>לוגיסטיקה והמתנה</h3>
+                    <p style="font-size: 2rem; font-weight: 800; color: #DC2626; margin: 15px 0;">45 דק'/יום</p>
+                    <p style="font-size: 0.9rem; color: #6B7280; line-height: 1.6;">המשאית מגיעה ב-10 במקום 8. 3 פועלים ממתינים. נסיעה בשביל "3 הברגים שחסרים".</p>
+                    <div style="margin-top: 15px; padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: 8px; border: 1px solid var(--green-construction);">
+                        <p style="color: var(--green-construction); font-weight: 600; font-size: 0.85rem;">MASA: תכנון אופטימלי</p>
+                    </div>
+                </div>
+                <div class="card problem-card" style="text-align: center;">
+                    <div class="card-icon">&#128203;</div>
+                    <h3>שגיאות ואדמיניסטרציה</h3>
+                    <p style="font-size: 2rem; font-weight: 800; color: #DC2626; margin: 15px 0;">30-45 דק'/יום</p>
+                    <p style="font-size: 0.9rem; color: #6B7280; line-height: 1.6;">בדיקת חשבונית, אימות שהמחיר ששולם = המחיר שנאמר, טיפול בהחזרה לא תקינה.</p>
+                    <div style="margin-top: 15px; padding: 12px; background: rgba(5, 150, 105, 0.1); border-radius: 8px; border: 1px solid var(--green-construction);">
+                        <p style="color: var(--green-construction); font-weight: 600; font-size: 0.85rem;">12% שגיאות בעל-פה מבוטלות</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- השפעה קונקרטית -->
+            <div class="cards-grid" style="grid-template-columns: repeat(4, 1fr); gap: 20px;">
                 <div class="card problem-card fade-in">
                     <div class="card-icon">&#9201;</div>
                     <h3>זמן אבוד</h3>
@@ -1575,10 +1607,10 @@
             </div>
 
             <!-- Chiffres cles du marche -->
-            <div class="metrics-bar fade-in" style="grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;">
+            <div class="metrics-bar fade-in" style="grid-template-columns: repeat(5, 1fr); gap: 18px; margin-bottom: 50px;">
                 <div class="metric" style="border-color: var(--green-construction);">
                     <div class="metric-value">35-40</div>
-                    <div class="metric-label">מיליארד &#8362;/שנה<br>שוק חומרי בניין כולל</div>
+                    <div class="metric-label">מיליארד &#8362;/שנה<br>שוק כולל</div>
                 </div>
                 <div class="metric" style="border-color: var(--orange-chantier);">
                     <div class="metric-value" style="color: var(--orange-chantier);">1,100</div>
@@ -1589,7 +1621,11 @@
                     <div class="metric-label">התחלות בנייה<br>בשנה</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-value">60%</div>
+                    <div class="metric-value">15-18M</div>
+                    <div class="metric-label">מ"ק בטון<br>נצרך/שנה</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">60%+</div>
                     <div class="metric-label">חומרי גמר<br>מיובאים</div>
                 </div>
             </div>
@@ -1676,6 +1712,12 @@
                         <p style="font-size: 0.95rem; color: #6B7280;">10% מהשוק אבל הכי הרבה עסקאות. "אפס נטל אדמיניסטרטיבי" מקבל משמעות.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- תשובה למשקיע -->
+            <div class="fade-in" style="max-width: 800px; margin: 40px auto 0; padding: 30px; background: linear-gradient(135deg, #1F2937 0%, #374151 100%); border-radius: 16px; text-align: center;">
+                <p style="color: #9CA3AF; font-size: 0.9rem; margin-bottom: 12px;">&#128172; "האם השוק לא מאט עם המצב הנוכחי?"</p>
+                <p style="color: var(--white); font-size: 1.15rem; font-weight: 600; line-height: 1.6;">נפח הבנייה יכול לתנוד, אבל הצורך באופטימיזציית עלויות הופך <span style="color: var(--green-light);">אפילו יותר קריטי</span>.<br>MASA זה לא מותרות של תקופת צמיחה,<br><span style="color: var(--yellow-safety);">זה כלי הישרדות בתקופת מתח.</span></p>
             </div>
 
         </div>
