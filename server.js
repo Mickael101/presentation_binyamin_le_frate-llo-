@@ -9,13 +9,15 @@ const server = http.createServer((req, res) => {
 
   // Routes
   if (req.url === '/' || req.url === '/fr' || req.url === '/french') {
-    filePath = path.join(__dirname, 'presentation.html');
+    filePath = path.join(__dirname, 'presentation_fr_vert_btp.html');
   } else if (req.url === '/he' || req.url === '/hebrew' || req.url === '/heb') {
-    filePath = path.join(__dirname, 'presentation_hebrew.html');
+    filePath = path.join(__dirname, 'presentation_vert_btp.html');
+  } else if (req.url === '/presentation_fr_vert_btp.html') {
+    filePath = path.join(__dirname, 'presentation_fr_vert_btp.html');
+  } else if (req.url === '/presentation_vert_btp.html') {
+    filePath = path.join(__dirname, 'presentation_vert_btp.html');
   } else if (req.url === '/presentation.html') {
     filePath = path.join(__dirname, 'presentation.html');
-  } else if (req.url === '/presentation_hebrew.html') {
-    filePath = path.join(__dirname, 'presentation_hebrew.html');
   } else {
     // Page d'accueil avec les deux liens
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
