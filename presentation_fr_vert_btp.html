@@ -1484,7 +1484,6 @@
             <div class="nav-dot" data-section="8"></div>
             <div class="nav-dot" data-section="9"></div>
             <div class="nav-dot" data-section="10"></div>
-            <div class="nav-dot" data-section="11"></div>
         </div>
     </nav>
 
@@ -1500,10 +1499,9 @@
         <div class="scroll-dot" data-section="8"></div>
         <div class="scroll-dot" data-section="9"></div>
         <div class="scroll-dot" data-section="10"></div>
-        <div class="scroll-dot" data-section="11"></div>
     </div>
 
-    <!-- HERO -->
+    <!-- SECTION 0: HERO -->
     <section class="hero" id="section-0">
         <div class="construction-pattern"></div>
         <div class="section-content hero-content">
@@ -1527,7 +1525,7 @@
         </div>
     </section>
 
-    <!-- PROBLEM -->
+    <!-- SECTION 1: PROBLEM -->
     <section class="section-white" id="section-1">
         <div class="construction-pattern"></div>
         <div class="section-content">
@@ -1564,8 +1562,125 @@
         </div>
     </section>
 
-    <!-- COMPARISON -->
+    <!-- SECTION 2: MARCHE (deplace de position 9) -->
     <section class="section-gray" id="section-2">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag green">Donnees Marche</span>
+                <h2>Un Marche Massif et Fragmente</h2>
+                <p class="section-subtitle" style="margin: 20px auto 0;">Source : CBS (Bureau Central des Statistiques) & Ministere de la Construction</p>
+            </div>
+
+            <!-- Chiffres cles du marche -->
+            <div class="metrics-bar fade-in" style="grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;">
+                <div class="metric" style="border-color: var(--green-construction);">
+                    <div class="metric-value">35-40</div>
+                    <div class="metric-label">Milliards &#8362;/an<br>Marche total materiaux</div>
+                </div>
+                <div class="metric" style="border-color: var(--orange-chantier);">
+                    <div class="metric-value" style="color: var(--orange-chantier);">1,100</div>
+                    <div class="metric-label">Points de vente<br>(Migrashim)</div>
+                </div>
+                <div class="metric" style="border-color: var(--yellow-safety);">
+                    <div class="metric-value" style="color: var(--yellow-dark);">60-70K</div>
+                    <div class="metric-label">Mises en chantier<br>par an</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">60%</div>
+                    <div class="metric-label">Materiaux 2nd oeuvre<br>importes</div>
+                </div>
+            </div>
+
+            <!-- Repartition par categorie -->
+            <div class="fade-in" style="margin-bottom: 50px;">
+                <h3 style="color: var(--green-construction); margin-bottom: 25px; font-size: 1.3rem; text-align: center;">&#128202; Repartition du Marche par Categorie</h3>
+                <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div class="card" style="padding: 25px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#127959;</div>
+                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Ciment, Beton, Agregats</h4>
+                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">12-14 Mrd &#8362;</p>
+                        <p style="color: #6B7280; font-size: 0.85rem;">35% du marche</p>
+                    </div>
+                    <div class="card" style="padding: 25px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#128705;</div>
+                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Finitions (Carrelage, Sanitaire)</h4>
+                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">8 Mrd &#8362;</p>
+                        <p style="color: #6B7280; font-size: 0.85rem;">20% du marche</p>
+                    </div>
+                    <div class="card" style="padding: 25px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#9881;</div>
+                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Metaux (Acier, Fer)</h4>
+                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">6 Mrd &#8362;</p>
+                        <p style="color: #6B7280; font-size: 0.85rem;">15% du marche</p>
+                    </div>
+                    <div class="card" style="padding: 25px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#128161;</div>
+                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Elec, Plomberie, Clim</h4>
+                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">5 Mrd &#8362;</p>
+                        <p style="color: #6B7280; font-size: 0.85rem;">12% du marche</p>
+                    </div>
+                    <div class="card" style="padding: 25px; text-align: center; border-color: var(--orange-chantier);">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#128295;</div>
+                        <h4 style="color: var(--orange-chantier); margin-bottom: 8px;">Bois, Peinture, Quincaillerie</h4>
+                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--orange-chantier);">4 Mrd &#8362;</p>
+                        <p style="color: #6B7280; font-size: 0.85rem;">10% - <strong>Notre creneau</strong></p>
+                    </div>
+                    <div class="card" style="padding: 25px; text-align: center;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#127777;</div>
+                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Isolation, Etancheite</h4>
+                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">3 Mrd &#8362;</p>
+                        <p style="color: #6B7280; font-size: 0.85rem;">8% du marche</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volatilite des prix -->
+            <div class="fade-in" style="margin-bottom: 50px;">
+                <h3 style="color: var(--orange-chantier); margin-bottom: 25px; font-size: 1.3rem; text-align: center;">&#128200; Evolution de l'Indice des Couts (Input Price Index)</h3>
+                <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div class="card" style="background: linear-gradient(180deg, #FEF2F2 0%, #FEE2E2 100%); border: 2px solid #FECACA; text-align: center; padding: 30px;">
+                        <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 10px;">2023</p>
+                        <p style="font-size: 2.5rem; font-weight: 800; color: #DC2626;">+5.5%</p>
+                        <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Hausse marquee (fer, bois)<br>Crises logistiques mondiales</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(180deg, #FEF2F2 0%, #FEE2E2 100%); border: 2px solid #FECACA; text-align: center; padding: 30px;">
+                        <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 10px;">2024</p>
+                        <p style="font-size: 2.5rem; font-weight: 800; color: #DC2626;">+4-6%</p>
+                        <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Forte volatilite<br>Contexte geopolitique</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(180deg, rgba(5, 150, 105, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%); border: 2px solid var(--green-construction); text-align: center; padding: 30px;">
+                        <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 10px;">2025 (Previsions)</p>
+                        <p style="font-size: 2.5rem; font-weight: 800; color: var(--green-construction);">Stabilisation</p>
+                        <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Prix hauts maintenus<br><strong>Focus sur l'efficacite = MASA</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pourquoi MASA -->
+            <div class="quote-box fade-in" style="max-width: 900px; margin: 0 auto; border-color: var(--green-construction); background: linear-gradient(135deg, rgba(5, 150, 105, 0.05) 0%, rgba(16, 185, 129, 0.08) 100%);">
+                <h4 style="color: var(--green-construction); margin-bottom: 20px; font-size: 1.2rem;">&#128161; Pourquoi ces chiffres valident MASA ?</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: left;">
+                    <div>
+                        <p style="font-weight: 700; color: var(--gray-dark); margin-bottom: 8px;">&#128204; Fragmentation</p>
+                        <p style="font-size: 0.95rem; color: #6B7280;">1,100 depots, milliers de references. L'acheteur est perdu. MASA centralise.</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 700; color: var(--gray-dark); margin-bottom: 8px;">&#128200; Volatilite</p>
+                        <p style="font-size: 0.95rem; color: #6B7280;">+5%/an d'inflation. Un catalogue papier est obsolete en 1 mois. Notre scan quotidien = avantage decisif.</p>
+                    </div>
+                    <div>
+                        <p style="font-weight: 700; color: var(--gray-dark); margin-bottom: 8px;">&#128295; Quincaillerie</p>
+                        <p style="font-size: 0.95rem; color: #6B7280;">10% du marche mais PLUS GROS volume de transactions. "Zero fardeau admin" prend tout son sens.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: COMPARISON -->
+    <section class="section-white" id="section-3">
         <div class="construction-pattern"></div>
         <div class="section-content">
             <span class="section-tag green">Comparaison</span>
@@ -1632,8 +1747,8 @@
         </div>
     </section>
 
-    <!-- LE PRODUIT -->
-    <section class="section-white" id="section-3">
+    <!-- SECTION 4: LE PRODUIT -->
+    <section class="section-gray" id="section-4">
         <div class="construction-pattern"></div>
         <div class="section-content">
             <div style="text-align: center; margin-bottom: 50px;">
@@ -1677,8 +1792,8 @@
         </div>
     </section>
 
-    <!-- LEVIER ACHATS -->
-    <section class="section-gray" id="section-4">
+    <!-- SECTION 5: LEVIER ACHATS -->
+    <section class="section-white" id="section-5">
         <div class="construction-pattern"></div>
         <div class="section-content">
             <div class="split-layout">
@@ -1741,51 +1856,7 @@
         </div>
     </section>
 
-    <!-- KABLAN SYNTHESE -->
-    <section class="section-white" id="section-5">
-        <div class="construction-pattern"></div>
-        <div class="section-content" style="text-align: center;">
-            <span class="section-tag green">Synthese Kablan</span>
-            <h2>Le Kablan Connecte</h2>
-            <p class="section-subtitle" style="margin: 0 auto 50px; text-align: center;">Reprendre le pouvoir sans quitter le chantier</p>
-
-            <div class="pillars fade-in">
-                <div class="pillar">
-                    <div class="pillar-number">1</div>
-                    <h3>Approvisionnement</h3>
-                    <ul>
-                        <li>Achats groupes via plateforme</li>
-                        <li>Acces stocks multi-fournisseurs</li>
-                        <li>Livraison Just-In-Time</li>
-                    </ul>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-number">2</div>
-                    <h3>Productivite</h3>
-                    <ul>
-                        <li>Devis instantanes optimises</li>
-                        <li>Validation prix en un clic</li>
-                        <li>Gagnez plus de chantiers</li>
-                    </ul>
-                </div>
-                <div class="pillar">
-                    <div class="pillar-number">3</div>
-                    <h3>Economies</h3>
-                    <ul>
-                        <li>Meilleurs prix par mise en concurrence</li>
-                        <li>Reduction frais kilometriques</li>
-                        <li>Suppression surcouts caches</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="quote-box fade-in" style="max-width: 700px; margin: 60px auto 0;">
-                <p>Le Kablan devient un <span>pilote</span>, plus un coureur.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOURNISSEUR -->
+    <!-- SECTION 6: FOURNISSEUR -->
     <section class="section-gray" id="section-6">
         <div class="construction-pattern"></div>
         <div class="section-content">
@@ -1903,57 +1974,8 @@
         </div>
     </section>
 
-    <!-- SYNTHESE GLOBALE -->
+    <!-- SECTION 7: MODELE ECONOMIQUE -->
     <section class="section-white" id="section-7">
-        <div class="construction-pattern"></div>
-        <div class="section-content">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <span class="section-tag green">Synthese Globale</span>
-                <h2>L'Alliance de la Performance</h2>
-                <p class="section-subtitle" style="margin: 20px auto 0;">Un cercle vertueux qui profite a tous les acteurs</p>
-            </div>
-
-            <div class="circle-container fade-in">
-                <div class="virtuous-circle">
-                    <div class="circle-item">
-                        <div class="circle-icon">&#128119;</div>
-                        <div class="circle-text">
-                            <h4>Kablan</h4>
-                            <p>Temps + Marge + Controle</p>
-                        </div>
-                    </div>
-                    <div class="circle-item">
-                        <div class="circle-icon">&#127981;</div>
-                        <div class="circle-text">
-                            <h4>Fournisseur</h4>
-                            <p>Volume + Visibilite + Rotation + Nouveaux clients digitaux</p>
-                        </div>
-                    </div>
-                    <div class="circle-item">
-                        <div class="circle-icon">&#127959;</div>
-                        <div class="circle-text">
-                            <h4>Chantier</h4>
-                            <p>Rapidite + Qualite + Fiabilite</p>
-                        </div>
-                    </div>
-                    <div class="circle-item">
-                        <div class="circle-icon">&#128202;</div>
-                        <div class="circle-text">
-                            <h4>Marche</h4>
-                            <p>Transparence + Concurrence saine</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="quote-box fade-in" style="max-width: 800px; margin: 60px auto 0; border-color: var(--yellow-safety);">
-                <p style="font-size: 1.5rem;">Ce n'est pas une plateforme.<br><span style="color: var(--orange-chantier);">C'est une infrastructure de profit.</span></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODELE ECONOMIQUE -->
-    <section class="section-gray" id="section-8">
         <div class="construction-pattern"></div>
         <div class="section-content">
             <div style="text-align: center; margin-bottom: 50px;">
@@ -1999,125 +2021,8 @@
         </div>
     </section>
 
-    <!-- MARCHE & AVANTAGES COMPETITIFS -->
-    <section class="section-white" id="section-9">
-        <div class="construction-pattern"></div>
-        <div class="section-content">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <span class="section-tag green">Donnees Marche</span>
-                <h2>Un Marche Massif et Fragmente</h2>
-                <p class="section-subtitle" style="margin: 20px auto 0;">Source : CBS (Bureau Central des Statistiques) & Ministere de la Construction</p>
-            </div>
-
-            <!-- Chiffres cles du marche -->
-            <div class="metrics-bar fade-in" style="grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 50px;">
-                <div class="metric" style="border-color: var(--green-construction);">
-                    <div class="metric-value">35-40</div>
-                    <div class="metric-label">Milliards &#8362;/an<br>Marche total materiaux</div>
-                </div>
-                <div class="metric" style="border-color: var(--orange-chantier);">
-                    <div class="metric-value" style="color: var(--orange-chantier);">1,100</div>
-                    <div class="metric-label">Points de vente<br>(Migrashim)</div>
-                </div>
-                <div class="metric" style="border-color: var(--yellow-safety);">
-                    <div class="metric-value" style="color: var(--yellow-dark);">60-70K</div>
-                    <div class="metric-label">Mises en chantier<br>par an</div>
-                </div>
-                <div class="metric">
-                    <div class="metric-value">60%</div>
-                    <div class="metric-label">Materiaux 2nd oeuvre<br>importes</div>
-                </div>
-            </div>
-
-            <!-- Repartition par categorie -->
-            <div class="fade-in" style="margin-bottom: 50px;">
-                <h3 style="color: var(--green-construction); margin-bottom: 25px; font-size: 1.3rem; text-align: center;">&#128202; Repartition du Marche par Categorie</h3>
-                <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                    <div class="card" style="padding: 25px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#127959;</div>
-                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Ciment, Beton, Agregats</h4>
-                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">12-14 Mrd &#8362;</p>
-                        <p style="color: #6B7280; font-size: 0.85rem;">35% du marche</p>
-                    </div>
-                    <div class="card" style="padding: 25px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#128705;</div>
-                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Finitions (Carrelage, Sanitaire)</h4>
-                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">8 Mrd &#8362;</p>
-                        <p style="color: #6B7280; font-size: 0.85rem;">20% du marche</p>
-                    </div>
-                    <div class="card" style="padding: 25px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#9881;</div>
-                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Metaux (Acier, Fer)</h4>
-                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">6 Mrd &#8362;</p>
-                        <p style="color: #6B7280; font-size: 0.85rem;">15% du marche</p>
-                    </div>
-                    <div class="card" style="padding: 25px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#128161;</div>
-                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Elec, Plomberie, Clim</h4>
-                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">5 Mrd &#8362;</p>
-                        <p style="color: #6B7280; font-size: 0.85rem;">12% du marche</p>
-                    </div>
-                    <div class="card" style="padding: 25px; text-align: center; border-color: var(--orange-chantier);">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#128295;</div>
-                        <h4 style="color: var(--orange-chantier); margin-bottom: 8px;">Bois, Peinture, Quincaillerie</h4>
-                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--orange-chantier);">4 Mrd &#8362;</p>
-                        <p style="color: #6B7280; font-size: 0.85rem;">10% - <strong>Notre creneau</strong></p>
-                    </div>
-                    <div class="card" style="padding: 25px; text-align: center;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">&#127777;</div>
-                        <h4 style="color: var(--gray-dark); margin-bottom: 8px;">Isolation, Etancheite</h4>
-                        <p style="font-size: 1.8rem; font-weight: 800; color: var(--green-construction);">3 Mrd &#8362;</p>
-                        <p style="color: #6B7280; font-size: 0.85rem;">8% du marche</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Volatilite des prix -->
-            <div class="fade-in" style="margin-bottom: 50px;">
-                <h3 style="color: var(--orange-chantier); margin-bottom: 25px; font-size: 1.3rem; text-align: center;">&#128200; Evolution de l'Indice des Couts (Input Price Index)</h3>
-                <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                    <div class="card" style="background: linear-gradient(180deg, #FEF2F2 0%, #FEE2E2 100%); border: 2px solid #FECACA; text-align: center; padding: 30px;">
-                        <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 10px;">2023</p>
-                        <p style="font-size: 2.5rem; font-weight: 800; color: #DC2626;">+5.5%</p>
-                        <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Hausse marquee (fer, bois)<br>Crises logistiques mondiales</p>
-                    </div>
-                    <div class="card" style="background: linear-gradient(180deg, #FEF2F2 0%, #FEE2E2 100%); border: 2px solid #FECACA; text-align: center; padding: 30px;">
-                        <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 10px;">2024</p>
-                        <p style="font-size: 2.5rem; font-weight: 800; color: #DC2626;">+4-6%</p>
-                        <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Forte volatilite<br>Contexte geopolitique</p>
-                    </div>
-                    <div class="card" style="background: linear-gradient(180deg, rgba(5, 150, 105, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%); border: 2px solid var(--green-construction); text-align: center; padding: 30px;">
-                        <p style="font-size: 0.9rem; color: #6B7280; margin-bottom: 10px;">2025 (Previsions)</p>
-                        <p style="font-size: 2.5rem; font-weight: 800; color: var(--green-construction);">Stabilisation</p>
-                        <p style="color: #6B7280; font-size: 0.85rem; margin-top: 10px;">Prix hauts maintenus<br><strong>Focus sur l'efficacite = MASA</strong></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pourquoi MASA -->
-            <div class="quote-box fade-in" style="max-width: 900px; margin: 0 auto; border-color: var(--green-construction); background: linear-gradient(135deg, rgba(5, 150, 105, 0.05) 0%, rgba(16, 185, 129, 0.08) 100%);">
-                <h4 style="color: var(--green-construction); margin-bottom: 20px; font-size: 1.2rem;">&#128161; Pourquoi ces chiffres valident MASA ?</h4>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: left;">
-                    <div>
-                        <p style="font-weight: 700; color: var(--gray-dark); margin-bottom: 8px;">&#128204; Fragmentation</p>
-                        <p style="font-size: 0.95rem; color: #6B7280;">1,100 depots, milliers de references. L'acheteur est perdu. MASA centralise.</p>
-                    </div>
-                    <div>
-                        <p style="font-weight: 700; color: var(--gray-dark); margin-bottom: 8px;">&#128200; Volatilite</p>
-                        <p style="font-size: 0.95rem; color: #6B7280;">+5%/an d'inflation. Un catalogue papier est obsolete en 1 mois. Notre scan quotidien = avantage decisif.</p>
-                    </div>
-                    <div>
-                        <p style="font-weight: 700; color: var(--gray-dark); margin-bottom: 8px;">&#128295; Quincaillerie</p>
-                        <p style="font-size: 0.95rem; color: #6B7280;">10% du marche mais PLUS GROS volume de transactions. "Zero fardeau admin" prend tout son sens.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- PROJECTIONS -->
-    <section class="section-gray" id="section-10">
+    <!-- SECTION 8: PROJECTIONS -->
+    <section class="section-gray" id="section-8">
         <div class="construction-pattern"></div>
         <div class="section-content">
             <div style="text-align: center; margin-bottom: 50px;">
@@ -2178,8 +2083,57 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section" id="section-11">
+    <!-- SECTION 9: SYNTHESE GLOBALE (deplace de position 7) -->
+    <section class="section-white" id="section-9">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag green">Synthese Globale</span>
+                <h2>L'Alliance de la Performance</h2>
+                <p class="section-subtitle" style="margin: 20px auto 0;">Un cercle vertueux qui profite a tous les acteurs</p>
+            </div>
+
+            <div class="circle-container fade-in">
+                <div class="virtuous-circle">
+                    <div class="circle-item">
+                        <div class="circle-icon">&#128119;</div>
+                        <div class="circle-text">
+                            <h4>Kablan</h4>
+                            <p>Temps + Marge + Controle</p>
+                        </div>
+                    </div>
+                    <div class="circle-item">
+                        <div class="circle-icon">&#127981;</div>
+                        <div class="circle-text">
+                            <h4>Fournisseur</h4>
+                            <p>Volume + Visibilite + Rotation + Nouveaux clients digitaux</p>
+                        </div>
+                    </div>
+                    <div class="circle-item">
+                        <div class="circle-icon">&#127959;</div>
+                        <div class="circle-text">
+                            <h4>Chantier</h4>
+                            <p>Rapidite + Qualite + Fiabilite</p>
+                        </div>
+                    </div>
+                    <div class="circle-item">
+                        <div class="circle-icon">&#128202;</div>
+                        <div class="circle-text">
+                            <h4>Marche</h4>
+                            <p>Transparence + Concurrence saine</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box fade-in" style="max-width: 800px; margin: 60px auto 0; border-color: var(--yellow-safety);">
+                <p style="font-size: 1.5rem;">Ce n'est pas une plateforme.<br><span style="color: var(--orange-chantier);">C'est une infrastructure de profit.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: CTA -->
+    <section class="cta-section" id="section-10">
         <div class="construction-pattern"></div>
         <div class="section-content cta-content">
             <h2>Transformer 30% de perte<br>en <span>100% de reussite</span></h2>
