@@ -1,0 +1,12 @@
+{
+  "name": "presentation-masa",
+  "version": "1.0.0",
+  "description": "Présentation MASA - Marketplace BTP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
