@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASA - Plateforme BTP | Presentation Investisseur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Palette BTP/Construction */
+            --green-construction: #059669;
+            --green-light: #10B981;
+            --green-dark: #047857;
+            --orange-chantier: #EA580C;
+            --orange-light: #F97316;
+            --gray-beton: #F3F4F6;
+            --gray-anthracite: #374151;
+            --gray-dark: #1F2937;
+            --white: #FFFFFF;
+            --yellow-safety: #FBBF24;
+            --yellow-dark: #F59E0B;
+
+            /* Gradients */
+            --gradient-green: linear-gradient(135deg, #059669 0%, #10B981 100%);
+            --gradient-orange: linear-gradient(135deg, #EA580C 0%, #F97316 100%);
+            --gradient-dark: linear-gradient(180deg, #1F2937 0%, #374151 100%);
+
+            /* Shadows */
+            --shadow-card: 0 4px 20px rgba(5, 150, 105, 0.15);
+            --shadow-hover: 0 12px 40px rgba(5, 150, 105, 0.25);
+            --shadow-orange: 0 4px 20px rgba(234, 88, 12, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-beton);
+            color: var(--gray-anthracite);
+            overflow-x: hidden;
+        }
+
+        /* Construction Pattern Background */
+        .construction-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.03;
+            background-image:
+                linear-gradient(var(--gray-anthracite) 1px, transparent 1px),
+                linear-gradient(90deg, var(--gray-anthracite) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid var(--green-construction);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--green-construction);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo::before {
+            content: '';
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-green);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-progress {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 6px;
+            background: #D1D5DB;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dot:hover {
+            background: var(--orange-chantier);
+            transform: scale(1.2);
+        }
+
+        .nav-dot.active {
+            width: 32px;
+            background: var(--green-construction);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-content {
+            max-width: 1400px;
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1F2937 0%, #374151 50%, #4B5563 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero .construction-pattern {
+            opacity: 0.05;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.3) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            background: rgba(5, 150, 105, 0.2);
+            border: 2px solid var(--green-construction);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--green-light);
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--green-light);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero h1 span {
+            color: var(--green-light);
+            position: relative;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: var(--orange-chantier);
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #9CA3AF;
+            max-width: 750px;
+            margin: 0 auto 50px;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            animation: fadeInUp 0.8s ease 0.6s backwards;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            background: rgba(5, 150, 105, 0.1);
+            border-color: var(--green-construction);
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--yellow-safety);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #9CA3AF;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Tags */
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .section-tag.red {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid #EF4444;
+            color: #DC2626;
+        }
+
+        .section-tag.green {
+            background: rgba(5, 150, 105, 0.1);
+            border: 2px solid var(--green-construction);
+            color: var(--green-construction);
+        }
+
+        .section-tag.orange {
+            background: rgba(234, 88, 12, 0.1);
+            border: 2px solid var(--orange-chantier);
+            color: var(--orange-chantier);
+        }
+
+        .section-tag.yellow {
+            background: rgba(251, 191, 36, 0.15);
+            border: 2px solid var(--yellow-safety);
+            color: var(--yellow-dark);
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--gray-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #6B7280;
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 50px;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-green);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--green-construction);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 65px;
+            height: 65px;
+            background: var(--gradient-green);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .card-icon.orange {
+            background: var(--gradient-orange);
+            box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--gray-dark);
+        }
+
+        .card p {
+            color: #6B7280;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Problem Cards */
+        .problem-card {
+            background: linear-gradient(180deg, #FEF2F2 0%, #FEE2E2 100%);
+            border: 2px solid #FECACA;
+        }
+
+        .problem-card:hover {
+            border-color: #EF4444;
+        }
+
+        .problem-card::before {
+            background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+        }
+
+        .problem-card .card-icon {
+            background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: var(--white);
+            border: 2px solid var(--green-construction);
+            border-radius: 16px;
+            padding: 40px 50px;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-card);
+        }
+
+        .quote-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: var(--gradient-orange);
+            border-radius: 2px;
+        }
+
+        .quote-box p {
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--gray-dark);
+        }
+
+        .quote-box p span {
+            color: var(--green-construction);
+        }
+
+        /* Comparison Table */
+        .comparison-wrapper {
+            margin-top: 50px;
+            overflow-x: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            border: 2px solid #E5E7EB;
+        }
+
+        .comparison-table th {
+            padding: 22px 28px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1rem;
+            background: var(--gray-beton);
+            border-bottom: 2px solid #E5E7EB;
+        }
+
+        .comparison-table th:first-child {
+            background: var(--gray-dark);
+            color: var(--white);
+        }
+
+        .comparison-table th:nth-child(2) {
+            color: #DC2626;
+        }
+
+        .comparison-table th:nth-child(3) {
+            color: var(--green-construction);
+        }
+
+        .comparison-table td {
+            padding: 20px 28px;
+            border-bottom: 1px solid #F3F4F6;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--gray-dark);
+            background: #FAFAFA;
+        }
+
+        .comparison-table td:nth-child(2) {
+            color: #6B7280;
+        }
+
+        .comparison-table td:nth-child(3) {
+            color: var(--green-construction);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(5, 150, 105, 0.03);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Metrics Bar */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .metric {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-card);
+        }
+
+        .metric:hover {
+            border-color: var(--green-construction);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--green-construction);
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            color: #6B7280;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Split Layout */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .visual-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #E5E7EB;
+            box-shadow: var(--shadow-card);
+        }
+
+        .visual-box.green-theme {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border-color: var(--green-construction);
+        }
+
+        .visual-box.orange-theme {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.05) 0%, rgba(249, 115, 22, 0.1) 100%);
+            border-color: var(--orange-chantier);
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 20px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-green);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+        }
+
+        .feature-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--gray-dark);
+        }
+
+        .feature-text p {
+            color: #6B7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .pillar {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .pillar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-green);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .pillar:hover {
+            transform: translateY(-8px);
+            border-color: var(--green-construction);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pillar:hover::after {
+            transform: scaleX(1);
+        }
+
+        .pillar-number {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .pillar h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--gray-dark);
+        }
+
+        .pillar ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .pillar ul li {
+            padding: 10px 0;
+            color: #6B7280;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pillar ul li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--green-construction);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Supplier Cards */
+        .supplier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .supplier-card {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-card);
+        }
+
+        .supplier-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--orange-chantier);
+            box-shadow: var(--shadow-orange);
+        }
+
+        .supplier-card h3 {
+            color: var(--orange-chantier);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .supplier-card ul {
+            list-style: none;
+        }
+
+        .supplier-card ul li {
+            padding: 10px 0;
+            color: #6B7280;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .supplier-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .supplier-card ul li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Flow Diagram */
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .flow-item {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 14px;
+            padding: 25px 35px;
+            text-align: center;
+            min-width: 180px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+
+        .flow-item:hover {
+            border-color: var(--green-construction);
+            transform: translateY(-3px);
+        }
+
+        .flow-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--gray-dark);
+        }
+
+        .flow-item p {
+            color: #6B7280;
+            font-size: 0.85rem;
+        }
+
+        .flow-item.highlight {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(16, 185, 129, 0.15) 100%);
+            border-color: var(--green-construction);
+        }
+
+        .flow-item.highlight h4 {
+            color: var(--green-construction);
+        }
+
+        .flow-arrow {
+            font-size: 1.8rem;
+            color: var(--orange-chantier);
+            font-weight: bold;
+        }
+
+        /* Virtuous Circle */
+        .circle-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .virtuous-circle {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+        }
+
+        .circle-item {
+            background: var(--white);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-card);
+        }
+
+        .circle-item:hover {
+            border-color: var(--green-construction);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .circle-icon {
+            width: 65px;
+            height: 65px;
+            background: var(--gradient-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.25);
+        }
+
+        .circle-text h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--gray-dark);
+        }
+
+        .circle-text p {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+
+        /* Economic Model Cards */
+        .economic-card {
+            background: var(--white);
+            border: 2px solid var(--yellow-safety);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .economic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(251, 191, 36, 0.25);
+        }
+
+        .economic-card .card-icon {
+            background: linear-gradient(135deg, var(--yellow-safety) 0%, var(--yellow-dark) 100%);
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+        }
+
+        .economic-card .highlight-value {
+            color: var(--yellow-dark);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1F2937 0%, #374151 50%, #4B5563 100%);
+            position: relative;
+            color: var(--white);
+        }
+
+        .cta-section .construction-pattern {
+            opacity: 0.05;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.2) 0%, transparent 60%);
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-content h2 {
+            font-size: 3.2rem;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .cta-content h2 span {
+            color: var(--green-light);
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: #9CA3AF;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 18px 45px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-green);
+            color: var(--white);
+            border: none;
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(5, 150, 105, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Final Stats */
+        .final-stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .final-stat {
+            text-align: center;
+        }
+
+        .final-stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--yellow-safety);
+            margin-bottom: 8px;
+        }
+
+        .final-stat-label {
+            color: #9CA3AF;
+            font-size: 1rem;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .scroll-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #D1D5DB;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-dot:hover {
+            background: var(--orange-chantier);
+            transform: scale(1.3);
+        }
+
+        .scroll-dot.active {
+            background: var(--green-construction);
+            transform: scale(1.3);
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section backgrounds */
+        .section-white {
+            background: var(--white);
+        }
+
+        .section-gray {
+            background: var(--gray-beton);
+        }
+
+        .section-dark {
+            background: var(--gradient-dark);
+            color: var(--white);
+        }
+
+        .section-dark h2 {
+            color: var(--white);
+        }
+
+        .section-dark .section-subtitle {
+            color: #9CA3AF;
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+
+        @media (max-width: 1400px) {
+            .section-content {
+                max-width: 1200px;
+            }
+
+            .hero h1 {
+                font-size: 3.8rem;
+            }
+
+            .stat-value {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            section {
+                padding: 90px 40px;
+            }
+
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .pillars {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .metrics-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .supplier-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            h2 {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            section {
+                padding: 80px 30px;
+            }
+
+            nav {
+                padding: 14px 25px;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .stat-value {
+                font-size: 2.6rem;
+            }
+
+            .hero-stats {
+                gap: 40px;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card {
+                padding: 28px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 16px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 20px;
+                min-height: auto;
+                scroll-snap-align: none;
+            }
+
+            html {
+                scroll-snap-type: none;
+            }
+
+            nav {
+                padding: 12px 20px;
+            }
+
+            .nav-progress {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                line-height: 1.25;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+                padding: 0 10px;
+            }
+
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 10px 20px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .stat {
+                min-width: auto;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .stat-value {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.9rem;
+                line-height: 1.3;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .section-tag {
+                font-size: 0.75rem;
+                padding: 8px 18px;
+            }
+
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .supplier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .metrics-bar {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .metric {
+                padding: 22px 15px;
+            }
+
+            .metric-value {
+                font-size: 1.8rem;
+            }
+
+            .final-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .final-stat-value {
+                font-size: 2.4rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 30px;
+            }
+
+            .cta-content h2 {
+                font-size: 1.9rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            .flow-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .virtuous-circle {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .comparison-wrapper {
+                overflow-x: auto;
+                margin: 0 -20px;
+                padding: 0 20px;
+            }
+
+            .comparison-table {
+                min-width: 500px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .stat-value {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            .card {
+                padding: 22px;
+            }
+
+            .card-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+
+            .pillar {
+                padding: 25px;
+            }
+
+            .supplier-card {
+                padding: 25px;
+            }
+
+            .metrics-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .visual-box {
+                padding: 30px;
+            }
+
+            .cta-content h2 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 50px 12px;
+            }
+
+            .hero h1 {
+                font-size: 1.65rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .metric-value {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            section {
+                min-height: auto;
+                padding: 40px 30px;
+            }
+
+            .hero-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            section {
+                min-height: auto;
+                page-break-inside: avoid;
+            }
+
+            nav, .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MASA</div>
+        <div class="nav-progress">
+            <div class="nav-dot active" data-section="0"></div>
+            <div class="nav-dot" data-section="1"></div>
+            <div class="nav-dot" data-section="2"></div>
+            <div class="nav-dot" data-section="3"></div>
+            <div class="nav-dot" data-section="4"></div>
+            <div class="nav-dot" data-section="5"></div>
+            <div class="nav-dot" data-section="6"></div>
+            <div class="nav-dot" data-section="7"></div>
+            <div class="nav-dot" data-section="8"></div>
+            <div class="nav-dot" data-section="9"></div>
+            <div class="nav-dot" data-section="10"></div>
+            <div class="nav-dot" data-section="11"></div>
+        </div>
+    </nav>
+
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" data-section="0"></div>
+        <div class="scroll-dot" data-section="1"></div>
+        <div class="scroll-dot" data-section="2"></div>
+        <div class="scroll-dot" data-section="3"></div>
+        <div class="scroll-dot" data-section="4"></div>
+        <div class="scroll-dot" data-section="5"></div>
+        <div class="scroll-dot" data-section="6"></div>
+        <div class="scroll-dot" data-section="7"></div>
+        <div class="scroll-dot" data-section="8"></div>
+        <div class="scroll-dot" data-section="9"></div>
+        <div class="scroll-dot" data-section="10"></div>
+        <div class="scroll-dot" data-section="11"></div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="section-0">
+        <div class="construction-pattern"></div>
+        <div class="section-content hero-content">
+            <span class="hero-badge">Plateforme BTP Nouvelle Generation</span>
+            <h1>Reprendre le <span>controle</span><br>de vos chantiers</h1>
+            <p class="hero-subtitle">Passez de "je subis la logistique" a "je controle le temps, les prix et les chantiers" grace a notre infrastructure digitale.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">du temps actuellement perdu</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">+3</div>
+                    <div class="stat-label">heures recuperees par jour</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">-15%</div>
+                    <div class="stat-label">sur vos achats grace a la mise en concurrence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section-white" id="section-1">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <span class="section-tag red">Le Constat</span>
+            <h2>30% de temps perdu =<br>30% de profit invisible</h2>
+            <p class="section-subtitle">La logistique traditionnelle est une perte seche de productivite qui impacte directement votre rentabilite.</p>
+
+            <div class="cards-grid">
+                <div class="card problem-card fade-in">
+                    <div class="card-icon">&#9201;</div>
+                    <h3>Temps perdu</h3>
+                    <p>Trajets inutiles, appels repetitifs, desorganisation permanente qui grignote vos journees.</p>
+                </div>
+                <div class="card problem-card fade-in">
+                    <div class="card-icon">&#128552;</div>
+                    <h3>Stress constant</h3>
+                    <p>Gestion des imprevus, coordination complexe, pression permanente sur le chef de chantier.</p>
+                </div>
+                <div class="card problem-card fade-in">
+                    <div class="card-icon">&#128184;</div>
+                    <h3>Frais vehicule</h3>
+                    <p>Kilometres inutiles, usure prematuree, couts caches qui s'accumulent.</p>
+                </div>
+                <div class="card problem-card fade-in">
+                    <div class="card-icon">&#128100;</div>
+                    <h3>Perte d'autorite</h3>
+                    <p>Absence physique = perte de controle sur l'avancement et la qualite du travail.</p>
+                </div>
+            </div>
+
+            <div class="quote-box fade-in">
+                <p>Le probleme n'est pas le chantier.<br><span>Le probleme, c'est l'information, la logistique et l'achat.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="section-gray" id="section-2">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <span class="section-tag green">Comparaison</span>
+            <h2>Traditionnel vs Digital</h2>
+            <p class="section-subtitle">Ce n'est pas une question d'outil. C'est une question de modele de travail.</p>
+
+            <div class="comparison-wrapper fade-in">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Axe</th>
+                            <th>Modele Traditionnel</th>
+                            <th>Modele Digital</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Temps</td>
+                            <td>30% de la journee perdue</td>
+                            <td>+2 a 3h/jour recuperees</td>
+                        </tr>
+                        <tr>
+                            <td>Logistique</td>
+                            <td>Deplacements, embouteillages</td>
+                            <td>Livraisons Just-In-Time</td>
+                        </tr>
+                        <tr>
+                            <td>Prix</td>
+                            <td>Biais fournisseur unique</td>
+                            <td>Multi-fournisseurs compares</td>
+                        </tr>
+                        <tr>
+                            <td>Stress</td>
+                            <td>Appels constants</td>
+                            <td>Flux automatise</td>
+                        </tr>
+                        <tr>
+                            <td>Controle</td>
+                            <td>Presence physique requise</td>
+                            <td>Pilotage depuis le chantier</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="metrics-bar fade-in">
+                <div class="metric">
+                    <div class="metric-value">2-3h</div>
+                    <div class="metric-label">Recuperees par jour</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">-80%</div>
+                    <div class="metric-label">Frais kilometriques</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Temps morts</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">-90%</div>
+                    <div class="metric-label">Erreurs d'approvisionnement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE PRODUIT -->
+    <section class="section-white" id="section-3">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag green">La Solution</span>
+                <h2>Une Marketplace Intelligente</h2>
+                <p class="section-subtitle" style="margin: 20px auto 0;">Chaque fonctionnalite resout un probleme concret du terrain</p>
+            </div>
+
+            <div class="cards-grid fade-in" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                <div class="card">
+                    <div class="card-icon">&#9876;</div>
+                    <h3>Mise en Concurrence</h3>
+                    <p><strong style="color: var(--green-construction);">Meilleurs prix garantis</strong> grace a la mise en concurrence automatique des fournisseurs sur chaque demande.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128241;</div>
+                    <h3>Chiffrage Instantane</h3>
+                    <p>Un outil "No-Code" qui genere des devis complets en quelques clics. Fini les heures perdues a chercher les prix.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128260;</div>
+                    <h3>Catalogue Dynamique</h3>
+                    <p>Prix mis a jour chaque nuit via <strong>Price Sync</strong>. Toujours les prix du marche en temps reel.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#128274;</div>
+                    <h3>Devis Blinde</h3>
+                    <p>Pre-quote affichant uniquement le montant total. <strong>Protection anti-contournement</strong> pour le fournisseur.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon orange">&#128666;</div>
+                    <h3>Logistique Avancee</h3>
+                    <p>Livraisons integrees : <strong>Standard, Grue/Mano, Retrait</strong>. Calendrier partage entre tous.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#11088;</div>
+                    <h3>Notation Croisee</h3>
+                    <p>Systeme de notation <strong>acheteur/vendeur</strong>. Fiabilite des livraisons et serieux des paiements garantis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEVIER ACHATS -->
+    <section class="section-gray" id="section-4">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div class="split-layout">
+                <div>
+                    <span class="section-tag green">Levier 1</span>
+                    <h2>Achats & Logistique</h2>
+                    <p class="section-subtitle">Zero trajet. Zero biais. Zero perte.</p>
+
+                    <ul class="feature-list fade-in">
+                        <li>
+                            <div class="feature-icon">&#128230;</div>
+                            <div class="feature-text">
+                                <h4>Centralisation totale</h4>
+                                <p>Commandez aupres de plusieurs fournisseurs sur une seule plateforme</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#128065;</div>
+                            <div class="feature-text">
+                                <h4>Gain de visibilite</h4>
+                                <p>Acces aux nouveautes et innovations sans deplacement</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#128666;</div>
+                            <div class="feature-text">
+                                <h4>Livraison Just-In-Time</h4>
+                                <p>Directement sur le poste de travail, au moment precis</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#128202;</div>
+                            <div class="feature-text">
+                                <h4>Comparaison prix temps reel</h4>
+                                <p>Tableau comparatif, historique et choix par disponibilite</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#128221;</div>
+                            <div class="feature-text">
+                                <h4>Devis instantanes</h4>
+                                <p>Generez vos devis en quelques clics avec des couts materiaux optimises pour remporter plus de chantiers</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="split-visual fade-in">
+                    <div class="visual-box green-theme">
+                        <div style="text-align: center;">
+                            <div style="font-size: 4.5rem; margin-bottom: 25px;">&#127959;</div>
+                            <h3 style="font-size: 1.7rem; margin-bottom: 18px; color: var(--gray-dark);">Procurement Digital</h3>
+                            <p style="color: #6B7280; line-height: 1.7;">Chaque trajet evite = temps gagne + fatigue supprimee + argent economise.</p>
+                            <div style="margin-top: 35px; padding: 22px; background: rgba(5, 150, 105, 0.15); border-radius: 14px; border: 2px solid var(--green-construction);">
+                                <p style="color: var(--green-construction); font-weight: 700; font-size: 1.2rem;">Resultat : +30% de productivite</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KABLAN SYNTHESE -->
+    <section class="section-white" id="section-5">
+        <div class="construction-pattern"></div>
+        <div class="section-content" style="text-align: center;">
+            <span class="section-tag green">Synthese Kablan</span>
+            <h2>Le Kablan Connecte</h2>
+            <p class="section-subtitle" style="margin: 0 auto 50px; text-align: center;">Reprendre le pouvoir sans quitter le chantier</p>
+
+            <div class="pillars fade-in">
+                <div class="pillar">
+                    <div class="pillar-number">1</div>
+                    <h3>Approvisionnement</h3>
+                    <ul>
+                        <li>Achats groupes via plateforme</li>
+                        <li>Acces stocks multi-fournisseurs</li>
+                        <li>Livraison Just-In-Time</li>
+                    </ul>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-number">2</div>
+                    <h3>Productivite</h3>
+                    <ul>
+                        <li>Devis instantanes optimises</li>
+                        <li>Validation prix en un clic</li>
+                        <li>Gagnez plus de chantiers</li>
+                    </ul>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-number">3</div>
+                    <h3>Economies</h3>
+                    <ul>
+                        <li>Meilleurs prix par mise en concurrence</li>
+                        <li>Reduction frais kilometriques</li>
+                        <li>Suppression surcouts caches</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quote-box fade-in" style="max-width: 700px; margin: 60px auto 0;">
+                <p>Le Kablan devient un <span>pilote</span>, plus un coureur.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOURNISSEUR -->
+    <section class="section-gray" id="section-6">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag orange">Cote Fournisseur</span>
+                <h2>La Vitrine Digitale</h2>
+                <p class="section-subtitle" style="margin: 20px auto 0;">De vendeur local a acteur territorial</p>
+            </div>
+
+            <div class="supplier-grid fade-in">
+                <div class="supplier-card">
+                    <h3>&#127978; Vitrine 24/7</h3>
+                    <ul>
+                        <li>Visibilite totale permanente</li>
+                        <li>Showroom digital attractif</li>
+                        <li>Exposition stocks & nouveautes</li>
+                        <li>Nouveaux clients digitaux</li>
+                    </ul>
+                </div>
+                <div class="supplier-card">
+                    <h3>&#128176; Cout Commercial Reduit</h3>
+                    <ul>
+                        <li>Le client vient a vous</li>
+                        <li>Moins de commerciaux terrain</li>
+                        <li>Zero catalogue papier</li>
+                        <li>Cout d'acquisition &#8594; 0</li>
+                    </ul>
+                </div>
+                <div class="supplier-card">
+                    <h3>&#128506; Elargissement Geographique</h3>
+                    <ul>
+                        <li>Touchez des chantiers hors zone</li>
+                        <li>Rayon d'action multiplie</li>
+                        <li>Sans ouvrir de nouvelle agence</li>
+                        <li>Croissance sans investissement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="supplier-grid fade-in" style="margin-top: 25px;">
+                <div class="supplier-card">
+                    <h3>&#129534; Petites Commandes Rentables</h3>
+                    <ul>
+                        <li>Commandes &lt;500&#8364; automatisees</li>
+                        <li>Zero fardeau administratif</li>
+                        <li>Meme les petits lots sont rentables</li>
+                        <li>Volume cumule significatif</li>
+                    </ul>
+                </div>
+                <div class="supplier-card">
+                    <h3>&#128737; Zero Litiges</h3>
+                    <ul>
+                        <li>Commandes structurees = 0 erreur</li>
+                        <li>Devis blinde anti-malentendu</li>
+                        <li>Moins de retours produits</li>
+                        <li>Temps SAV divise par 5</li>
+                    </ul>
+                </div>
+                <div class="supplier-card">
+                    <h3>&#128179; Volume Pre-Paye Garanti</h3>
+                    <ul>
+                        <li>Paiement securise avant livraison</li>
+                        <li>Fini les impayes et relances</li>
+                        <li>Zero creances douteuses</li>
+                        <li>Cash-flow 100% previsible</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="supplier-grid fade-in" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 25px auto 0;">
+                <div class="supplier-card">
+                    <h3>&#129302; Ventes Automatisees</h3>
+                    <ul>
+                        <li>Commandes structurees 24/7</li>
+                        <li>Zero telephone, zero mail</li>
+                        <li>Moins d'erreurs humaines</li>
+                        <li>Plus de volume traite</li>
+                    </ul>
+                </div>
+                <div class="supplier-card">
+                    <h3>&#128257; Fidelisation Automatique</h3>
+                    <ul>
+                        <li>Historique & favoris clients</li>
+                        <li>Reassorts en un clic</li>
+                        <li>Lock-in positif naturel</li>
+                        <li>Clients recurrents sans effort</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;" class="fade-in">
+                <h3 style="font-size: 1.4rem; margin-bottom: 30px; color: var(--gray-dark);">Transformer le stock mort en profit vivant</h3>
+                <div class="flow-container">
+                    <div class="flow-item">
+                        <h4>Publication</h4>
+                        <p>30 secondes mobile</p>
+                    </div>
+                    <div class="flow-arrow">&#8594;</div>
+                    <div class="flow-item">
+                        <h4>Ventes Flash</h4>
+                        <p>-30% / -50%</p>
+                    </div>
+                    <div class="flow-arrow">&#8594;</div>
+                    <div class="flow-item">
+                        <h4>Alertes Clients</h4>
+                        <p>Match automatique</p>
+                    </div>
+                    <div class="flow-arrow">&#8594;</div>
+                    <div class="flow-item highlight">
+                        <h4>Cash-Flow</h4>
+                        <p>Immediat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYNTHESE GLOBALE -->
+    <section class="section-white" id="section-7">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag green">Synthese Globale</span>
+                <h2>L'Alliance de la Performance</h2>
+                <p class="section-subtitle" style="margin: 20px auto 0;">Un cercle vertueux qui profite a tous les acteurs</p>
+            </div>
+
+            <div class="circle-container fade-in">
+                <div class="virtuous-circle">
+                    <div class="circle-item">
+                        <div class="circle-icon">&#128119;</div>
+                        <div class="circle-text">
+                            <h4>Kablan</h4>
+                            <p>Temps + Marge + Controle</p>
+                        </div>
+                    </div>
+                    <div class="circle-item">
+                        <div class="circle-icon">&#127981;</div>
+                        <div class="circle-text">
+                            <h4>Fournisseur</h4>
+                            <p>Volume + Visibilite + Rotation + Nouveaux clients digitaux</p>
+                        </div>
+                    </div>
+                    <div class="circle-item">
+                        <div class="circle-icon">&#127959;</div>
+                        <div class="circle-text">
+                            <h4>Chantier</h4>
+                            <p>Rapidite + Qualite + Fiabilite</p>
+                        </div>
+                    </div>
+                    <div class="circle-item">
+                        <div class="circle-icon">&#128202;</div>
+                        <div class="circle-text">
+                            <h4>Marche</h4>
+                            <p>Transparence + Concurrence saine</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box fade-in" style="max-width: 800px; margin: 60px auto 0; border-color: var(--yellow-safety);">
+                <p style="font-size: 1.5rem;">Ce n'est pas une plateforme.<br><span style="color: var(--orange-chantier);">C'est une infrastructure de profit.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODELE ECONOMIQUE -->
+    <section class="section-gray" id="section-8">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag yellow">Rentabilite</span>
+                <h2>Modele Economique</h2>
+                <p class="section-subtitle" style="margin: 20px auto 0;">Une structure de revenus simple, transparente et scalable</p>
+            </div>
+
+            <div class="cards-grid fade-in" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                <div class="card economic-card">
+                    <div class="card-icon">&#128176;</div>
+                    <h3>Commission Bilaterale</h3>
+                    <p><span class="highlight-value">2%</span> par transaction</p>
+                    <ul style="margin-top: 15px; color: #6B7280; font-size: 0.9rem; list-style: none;">
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> 1% Frais de service (acheteur)</li>
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> 1% Apport d'affaires (fournisseur)</li>
+                    </ul>
+                </div>
+                <div class="card economic-card">
+                    <div class="card-icon">&#11088;</div>
+                    <h3>Abonnement MASA Pro</h3>
+                    <p><span class="highlight-value">99&#8364;</span> / an</p>
+                    <ul style="margin-top: 15px; color: #6B7280; font-size: 0.9rem; list-style: none;">
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> 5 devis gratuits sans abo</li>
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> Usage illimite avec Pro</li>
+                    </ul>
+                </div>
+                <div class="card economic-card">
+                    <div class="card-icon">&#128274;</div>
+                    <h3>Paiement Securise</h3>
+                    <p><strong style="color: var(--yellow-dark);">Split-API</strong> integre</p>
+                    <ul style="margin-top: 15px; color: #6B7280; font-size: 0.9rem; list-style: none;">
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> CB, Virement, Paiement mobile</li>
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> Commission prelevee a la source</li>
+                        <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;"><span style="color: var(--yellow-dark);">&#8226;</span> Frais bancaires supportes fournisseur</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quote-box fade-in" style="max-width: 700px; margin: 50px auto 0; border-color: var(--yellow-safety);">
+                <p>Zero erosion par les frais bancaires.<br><span style="color: var(--orange-chantier);">La commission est nette, prelevee a la source.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARCHE & AVANTAGES COMPETITIFS -->
+    <section class="section-white" id="section-9">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag green">Potentiel</span>
+                <h2>Marche & Avantages Competitifs</h2>
+            </div>
+
+            <div class="split-layout fade-in" style="gap: 50px;">
+                <div>
+                    <h3 style="color: var(--green-construction); margin-bottom: 25px; font-size: 1.4rem;">&#128202; Taille du Marche</h3>
+                    <div class="metrics-bar" style="grid-template-columns: 1fr; gap: 18px;">
+                        <div class="metric">
+                            <div class="metric-value">15 Mrd &#8364;</div>
+                            <div class="metric-label">Marche adressable total</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" style="color: var(--orange-chantier);">2 Mrd &#8364;</div>
+                            <div class="metric-label">Gaspilles chaque annee en inefficiences</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 25px; padding: 25px; background: var(--gray-beton); border-radius: 14px; border: 2px solid #E5E7EB;">
+                        <p style="color: #6B7280; line-height: 1.9; font-size: 1.05rem;">
+                            <strong style="color: var(--gray-dark);">200+</strong> Importateurs<br>
+                            <strong style="color: var(--gray-dark);">1,000+</strong> Depots<br>
+                            <strong style="color: var(--gray-dark);">Dizaines de milliers</strong> de Kablanim
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: var(--green-construction); margin-bottom: 25px; font-size: 1.4rem;">&#128737; Nos Avantages Competitifs</h3>
+                    <ul class="feature-list">
+                        <li>
+                            <div class="feature-icon">&#9876;</div>
+                            <div class="feature-text">
+                                <h4>Encheres Inversees</h4>
+                                <p>"Match de prix" automatique forcant les fournisseurs a etre competitifs</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#11088;</div>
+                            <div class="feature-text">
+                                <h4>Auto-Regulation</h4>
+                                <p>Notation croisee acheteur/vendeur garantissant fiabilite et serieux</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#9729;</div>
+                            <div class="feature-text">
+                                <h4>Architecture Serverless</h4>
+                                <p>Infrastructure incassable, scalable a l'infini, couts quasi nuls</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feature-icon">&#129302;</div>
+                            <div class="feature-text">
+                                <h4>IA Auto-hebergee</h4>
+                                <p>Cout fixe, independance totale, code modulaire sans dependance</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTIONS -->
+    <section class="section-gray" id="section-10">
+        <div class="construction-pattern"></div>
+        <div class="section-content">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag green">Roadmap</span>
+                <h2>Objectifs & Projections</h2>
+            </div>
+
+            <div class="split-layout fade-in" style="gap: 40px;">
+                <div class="visual-box green-theme">
+                    <div style="text-align: center;">
+                        <span class="section-tag green" style="margin-bottom: 20px;">12 Mois</span>
+                        <div class="metrics-bar" style="grid-template-columns: 1fr; gap: 12px; margin-top: 25px;">
+                            <div class="metric" style="background: transparent; border: none; padding: 12px; box-shadow: none;">
+                                <div class="metric-value">300</div>
+                                <div class="metric-label">Kablanim actifs</div>
+                            </div>
+                            <div class="metric" style="background: transparent; border: none; padding: 12px; box-shadow: none;">
+                                <div class="metric-value">5M &#8364;</div>
+                                <div class="metric-label">GMV mensuel</div>
+                            </div>
+                            <div class="metric" style="background: transparent; border: none; padding: 12px; box-shadow: none;">
+                                <div class="metric-value">100K &#8364;</div>
+                                <div class="metric-label">Revenus / mois</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(5, 150, 105, 0.2); border-radius: 12px; border: 2px solid var(--green-construction);">
+                            <p style="color: var(--green-construction); font-weight: 700;">Break-even atteint</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="visual-box orange-theme">
+                    <div style="text-align: center;">
+                        <span class="section-tag orange" style="margin-bottom: 20px;">24 Mois</span>
+                        <div class="metrics-bar" style="grid-template-columns: 1fr; gap: 12px; margin-top: 25px;">
+                            <div class="metric" style="background: transparent; border: none; padding: 12px; box-shadow: none;">
+                                <div class="metric-value" style="color: var(--orange-chantier);">1,000</div>
+                                <div class="metric-label">Kablanim actifs</div>
+                            </div>
+                            <div class="metric" style="background: transparent; border: none; padding: 12px; box-shadow: none;">
+                                <div class="metric-value" style="color: var(--orange-chantier);">12M &#8364;</div>
+                                <div class="metric-label">GMV mensuel</div>
+                            </div>
+                            <div class="metric" style="background: transparent; border: none; padding: 12px; box-shadow: none;">
+                                <div class="metric-value" style="color: var(--orange-chantier);">240K &#8364;</div>
+                                <div class="metric-label">Revenus / mois</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(234, 88, 12, 0.2); border-radius: 12px; border: 2px solid var(--orange-chantier);">
+                            <p style="color: var(--orange-chantier); font-weight: 700;">~100K &#8364; marge nette / mois</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-box fade-in" style="max-width: 800px; margin: 50px auto 0;">
+                <p>Scalabilite totale : couts de structure quasi nuls<br><span>grace a l'automatisation du flux Demande &#8594; Paiement &#8594; Livraison</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="section-11">
+        <div class="construction-pattern"></div>
+        <div class="section-content cta-content">
+            <h2>Transformer 30% de perte<br>en <span>100% de reussite</span></h2>
+            <p class="cta-subtitle">Du chantier subi au chantier pilote. Reprenez le controle du temps, des prix et des hommes.</p>
+
+            <div class="cta-buttons fade-in">
+                <a href="#" class="btn btn-primary">Demander une demo &#8594;</a>
+                <a href="#" class="btn btn-secondary">Nous contacter</a>
+            </div>
+
+            <div class="final-stats fade-in">
+                <div class="final-stat">
+                    <div class="final-stat-value">+30%</div>
+                    <div class="final-stat-label">Productivite</div>
+                </div>
+                <div class="final-stat">
+                    <div class="final-stat-value">-15%</div>
+                    <div class="final-stat-label">Sur vos achats</div>
+                </div>
+                <div class="final-stat">
+                    <div class="final-stat-value">+3h</div>
+                    <div class="final-stat-label">Par jour</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation dots
+        const sections = document.querySelectorAll('section');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const scrollDots = document.querySelectorAll('.scroll-dot');
+
+        const updateDots = () => {
+            let current = 0;
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    current = index;
+                }
+            });
+
+            navDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === current);
+            });
+            scrollDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === current);
+            });
+        };
+
+        window.addEventListener('scroll', updateDots);
+
+        // Click navigation
+        [...navDots, ...scrollDots].forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionIndex = dot.dataset.section;
+                sections[sectionIndex].scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Initial update
+        updateDots();
+
+        // Animate on load
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
